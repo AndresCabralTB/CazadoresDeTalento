@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="backgrounds.css">
+    <link rel="stylesheet" href="cazadorCSS.css">
+
+
+  <title>Communication View</title>
+
+
+</head>
+<body class="body-dark">
+<h1>Room Meeting</h1>
+ <div class="row">
+    <div class="col">
+    <h2 style="color: white">Talentos:</h2>
+      <div id="talentosList" class="justify-content-center">
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="col">
+        <h2 style="color: white">Cazadores:</h2>
+
+        <div id="cazadorList" class="justify-content-center">
+        </div>
+      </div>
+    </div>
+  </div>
+<div class=" container d-flex justify-content-center" style="padding: 20px; align-items: center">
+    <a href="#" class="btn btn-primary btn-lg">Firmar Contrato </a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script>
+  // Fetch user data from the server
+  fetch('http://localhost:8080/getUserDataCazador') // Update the endpoint accordingly
+          .then(response => response.json())
+          .then(userData => {
+            // Assuming userData is an array of user objects, and you want the first user's name
+            const userNameCazador = userData.length > 0 ? userData[0].name : 'No user data available';
+
+            // Update the HTML element with the user's name
+            document.getElementById('userNameCazador').textContent = `Cazador: ${userNameCazador}`;
+
+          })
+          .catch(error => {
+            console.error('Error fetching user data:', error);
+          });
+</script>
+
+
+<script>
+  // Fetch user data from the server
+  fetch('http://localhost:8080/getUserDataTalento') // Update the endpoint accordingly
+          .then(response => response.json())
+          .then(userDataTalento => {
+            const talentosList = document.getElementById("talentosList");
+            talentosList.innerHTML = "";
+
+            userDataTalento.forEach(userDataTalento => {
+              const talentosGroupList = document.createElement("div");
+              talentosGroupList.classList.add("list-group");
+
+              const item = document.createElement("div");
+              item.classList.add("list-group-item");
+
+              item.innerHTML = `
+    <a href="#" class=" list-group-item-action" aria-current="false" >
+          <div class="d-flex" >
+            <div class="row d-flex w-100 justify-content-between" style="padding-left: 10px ">
+                 <h5 class="mb-1"><p>Nombre de talento: ${userDataTalento.name} ${userDataTalento.lastName}</p> </h5>
+            </div>
+        </div>
+        </a>
+        `;
+              talentosGroupList.appendChild(item);
+
+              talentosList.appendChild(talentosGroupList);
+            });
+
+          })
+          .catch(error => {
+            console.error('Error fetching user data:', error);
+          });
+</script>
+
+
+<script>
+  // Fetch user data from the server
+  fetch('http://localhost:8080/getUserDataCazador') // Update the endpoint accordingly
+          .then(response => response.json())
+          .then(userData => {
+            const cazadorList = document.getElementById("cazadorList");
+            cazadorList.innerHTML = "";
+
+            userData.forEach(userDataCazador => {
+              const groupList = document.createElement("div");
+              groupList.classList.add("list-group");
+
+              const item = document.createElement("div");
+              item.classList.add("list-group-item");
+
+              item.innerHTML = `
+    <a href="#" class=" list-group-item-action" aria-current="false" >
+          <div class="d-flex row" >
+            <div class="row d-flex w-100 justify-content-between" style="padding-left: 10px ">
+                <div class="d-flex col justify-content-between">
+                    <h5 class="mb-1"><p>Nombre de Cazador: ${userDataCazador.name} ${userDataCazador.lastName}</p> </h5>
+                </div>
+            </div>
+        </div>
+        </a>
+        `;
+              groupList.appendChild(item);
+
+              cazadorList.appendChild(groupList);
+            });
+
+          })
+          .catch(error => {
+            console.error('Error fetching user data:', error);
+          });
+</script>
+
+</body>
+</html>

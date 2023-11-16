@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="backgrounds.css">
+
+    <script src="RegistroCazadores.js"></script>
+
+
+    <title>Crear Proyecto</title>
+</head>
+<body class="body-dark">
+
+<div id="navbar-container">
+    <!-- Use a server-side include or JavaScript to include the contents of navbar.html here -->
+    <!-- Example using PHP include (make sure your server supports PHP): -->
+    <?php include 'navbar.html'; ?>
+    <!-- Example using JavaScript and Fetch API (make sure your browser supports Fetch API): -->
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+    </script>
+</div>
+
+<h1>Registro de Proyecto</h1>
+
+<div class=" container d-flex justify-content-center" style="padding-top: 35px">
+    <form id="projectForm" method="POST" action="http://localhost:8080/submitProject" class="form-control form-blue" style="width: 50%; height: 10% ; border: transparent; background-color: #8195B8; padding: 50px" >
+
+        <div class="container row">
+            <label for="nombreProyecto" >Nombre del proyecto</label>
+            <input type="text" id="nombreProyecto">
+        </div>
+        <div class="container row">
+            <label class="mt-4" for="descripcionProyecto"> Descripción del proyecto</label>
+            <input type="text" id="descripcionProyecto" >
+        </div>
+        <div class="container row">
+            <label class="mt-4" for="requerimientos"> Requerimientos del talento</label>
+            <input type="text" id="requerimientos">
+        </div>
+
+        <div class="container row">
+            <label class="mt-4" for="estado"> Estado del proyecto</label>
+            <input type="text" id="estado">
+        </div>
+
+        <div class="container row">
+            <label class="mt-4" for="numerodetalentos">Talentos Actuales</label>
+            <input type="number" id="numerodetalentos">
+        </div>
+
+        <div class=" container d-flex align-content-center justify-content-center mt-5">
+            <div class="form-checkbox">
+                <input class="form-checkbox" type="checkbox" id="agreements">
+            </div>
+            <label class="special-label form-label-bold" for="agreements">Aviso de <a href="RegistroTalentos.html">Privacidad</a>
+            </label>
+        </div>
+        <button id="submit" class="container d-flex justify-content-center btn btn-primary btn-block btn-lg form-label-bold color mt-4 mb-4">Crear Proyecto</button>
+    </form>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

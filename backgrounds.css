@@ -1,0 +1,40 @@
+.body-dark{
+    background-color: #2b2d30;
+}
+h1{
+    background-color: #8195B8;
+    text-align: center;
+    padding: 5px;
+}
+.h1-talento{
+    background-color: #DBB7A2;
+    text-align: center;
+    padding: 5px;
+}
+.h1-neutral{
+    background-color: transparent; !important;
+    color: white;
+
+}
+h2{
+    text-align: center;
+    text-decoration: #8195B8;
+}
+.h4{
+    color: white;
+}
+
+.list-group{
+    padding: 0 5% 0 5%;
+
+}
+
+.card-new{
+    border-radius: 25px;
+    height: 33rem;
+    width: 25rem;
+}
+
+.form{
+    background-color: transparent; !important;
+}

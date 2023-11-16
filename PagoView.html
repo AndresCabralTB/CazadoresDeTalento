@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>Pagos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="pagosCSS.css">
+
+    <title>Pago</title>
+</head>
+<body>
+
+<div id="navbar-container">
+    <!-- Use a server-side include or JavaScript to include the contents of navbar.html here -->
+    <!-- Example using PHP include (make sure your server supports PHP): -->
+    <?php include 'navbar.html'; ?>
+    <!-- Example using JavaScript and Fetch API (make sure your browser supports Fetch API): -->
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+    </script>
+</div>
+
+    <h1 class="text-center" >PAGO</h1>
+
+    <div class="row g-3" style="padding: 50px">
+        <div class="col-sm-4">
+            <form class="row form-control ">
+                <div>
+                    <h5 class="text-center mb-4" style="border-bottom: 1px solid black"> Datos de la operación</h5>
+                </div>
+
+                <div class="container d-flex justify-content-between">
+                    <label>Importe</label>
+                    <label>$1,000.00</label>
+                </div>
+                <div class="container d-flex justify-content-between">
+                    <label>Puntos</label>
+                    <label>60</label>
+                </div>
+                <div class="container d-flex justify-content-between">
+                    <label>Descuento</label>
+                    <label>$300.00</label>
+                </div>
+                <div class="container d-flex justify-content-between mt-3" style="border-top: 1px solid black; border-bottom: 1px solid black; padding-bottom: 15px">
+                    <label>Total</label>
+                    <label>$700.00</label>
+                </div>
+
+                <div class="container d-flex justify-content-between" style="padding: 20px 10px 20px 10px">
+                    <label>Cazador</label>
+                    <label>Nombre de cazador</label>
+                </div>
+                <div class="container d-flex justify-content-between" style="border-top: 1px solid black; padding-bottom: 15px">
+                    <label>Fecha</label>
+                    <label>13/11/2023 </label>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="col">
+            <div class="col-sm-auto">
+                <form class="row form-control ">
+                    <div>
+                        <h6 class="text-center mb-4" style="border-bottom: 1px solid black"> Pagar con Tarjeta</h6>
+                    </div>
+
+                    <div class="container d-flex justify-content-between" style="padding: 10px">
+                        <label for="cardOwner" >Nombre de propietario</label>
+                        <input type="text" class="form-control" placeholder="Nombre y Apellido(s)" id="cardOwner" style="width: 70%">
+                    </div>
+
+                    <div class="container d-flex justify-content-between">
+                        <label for="carNumber" >Número de Tarjeta</label>
+                        <input type="number" class="form-control" placeholder="Num. tarjeta" id="carNumber" style="width: 70%">
+                    </div>
+                    <div class="container d-flex justify-content-between" style="padding: 10px">
+                        <label for="expirationDate">Fecha de vencimiento</label>
+                        <input type="date" class="form-control" style="width: 30%" id="expirationDate">
+                    </div>
+                    <div class="container d-flex justify-content-between">
+                        <label for="cvvCard" >CVV</label>
+                        <input type="number" class="form-control" placeholder="000" style="width: 30%; padding: 10px" id="cvvCard">
+                    </div>
+
+                </form>
+
+                <div class="text-center mt-4">
+                    <a class="btn btn-primary btn-lg justify-content-center" style="width: 40%" href="HomeViewCazador.html" role="button">Proceder con el Pago</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
